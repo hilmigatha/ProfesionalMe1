@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hilmi Design — Desain Grafis & UI</title>
+  <meta name="description" content="Bglhil Design — Desainer grafis & UI yang membuat karya estetis dan fungsional. Aplikasi toko buku, branding, marketing assets." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+  <!-- Styles (single-file, modern, responsive) -->
+  <style>
+    :root{
+      --bg:#070A0F;
+      --card:#0D1116;
+      --muted:#9aa4b2;
+      --accent1:#00d084;
+      --accent2:#00b3ff;
+      --glass: rgba(255,255,255,0.04);
+      --radius:18px;
+      --fw-heading:800;
+      --fw-body:400;
+      --max-width:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,176,255,0.05), transparent),
+                  linear-gradient(180deg, rgba(5,8,12,1) 0%, rgba(8,12,20,1) 100%);
+      color:#E8EEF6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding-bottom:80px;
+    }
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:32px;}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0;}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:14px;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      display:grid;place-items:center;color:#04121a;font-weight:700;font-size:20px;box-shadow:0 6px 24px rgba(0,176,132,0.12);
+    }
+    .brand-name{line-height:1}
+    .brand-name h1{margin:0;font-size:16px;letter-spacing: -0.2px}
+    .brand-name p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-size:14px;padding:8px;border-radius:10px}
+    nav a:hover{color:#fff;background:var(--glass)}
+    .btn-cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#04121a;padding:10px 16px;border-radius:12px;font-weight:700;text-decoration:none;box-shadow:0 8px 30px rgba(0,176,132,0.12)}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.06);padding:8px 14px;border-radius:12px;color:var(--muted);text-decoration:none}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;padding:36px 0}
+    .hero-inner{display:grid;gap:18px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(0,176,132,0.08);padding:8px 12px;border-radius:999px;color:var(--accent1);font-size:13px;width:max-content}
+    h2.hero-title{font-size:32px;margin:0;line-height:1.03;font-weight:var(--fw-heading)}
+    p.lead{margin:0;color:var(--muted);max-width:62ch}
+
+    .hero-visual{border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(2,6,14,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .hero-visual img{display:block;width:100%;height:340px;object-fit:cover}
+
+    /* Services */
+    .grid{display:grid;gap:18px}
+    .services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.03);
+      transition:transform .22s ease, box-shadow .22s ease;
+      box-shadow: 0 6px 20px rgba(2,6,14,0.5);
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(2,6,14,0.6)}
+
+    .card h4{margin:0 0 8px 0}
+    .meta{font-size:13px;color:var(--muted)}
+
+    /* Projects */
+    .projects{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .project-thumb{position:relative;border-radius:12px;overflow:hidden}
+    .project-thumb img{width:100%;height:180px;object-fit:cover;display:block;transition:transform .4s ease}
+    .project-thumb:hover img{transform:scale(1.06)}
+    .project-info{padding:12px;background:linear-gradient(180deg, rgba(0,0,0,0.06), transparent)}
+
+    /* Testimonials */
+    .testi{display:flex;flex-direction:column;gap:12px}
+    .quote{font-style:italic;color:var(--muted)}
+
+    /* Contact */
+    .contact-grid{grid-template-columns:1fr 360px}
+    form input, form textarea{
+      width:100%;padding:10px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit;font-size:14px;margin-top:8px
+    }
+    .pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px}
+
+    footer{margin-top:30px;color:var(--muted);font-size:13px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.03)}
+
+    /* Responsive */
+    @media(min-width:900px){
+      .hero{grid-template-columns:1fr 520px}
+      h2.hero-title{font-size:44px}
+    }
+    @media(max-width:800px){
+      .container{padding:22px}
+      nav{display:none}
+    }
+
+    /* subtle utilities */
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+    .center{display:grid;place-items:center}
+    .gap-6{gap:24px}
+    .mb-6{margin-bottom:24px}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">HD</div>
+        <div class="brand-name">
+          <h1>Hilmi Design</h1>
+          <p>Desain grafis • UI/Brand • Web visuals</p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact" class="btn-ghost">Contact</a>
+        <a href="#contact" class="btn-cta">Hire me</a>
+      </nav>
+
+      <!-- mobile menu button -->
+      <div id="mobileMenuBtn" class="pill" style="display:none;cursor:pointer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-inner">
+        <div class="eyebrow">Trusted freelance designer</div>
+        <h2 class="hero-title">Desain grafis & UI yang memukau — estetika + strategi</h2>
+        <p class="lead">Saya membuat identitas visual, antarmuka aplikasi, dan aset pemasaran yang tak hanya indah, tetapi juga dirancang untuk berfungsi — seperti proyek <strong>Aplikasi Toko Buku</strong> yang saya desain dari tata letak sampai aset UI.</p>
+
+        <div style="display:flex;gap:12px;margin-top:8px">
+          <a href="#contact" class="btn-cta">Hire me — Let's build</a>
+          <a href="#projects" class="btn-ghost">See portfolio</a>
+        </div>
+
+        <div class="mb-6 small muted" style="margin-top:10px">Spesialisasi: Logo • UI/UX • Social media assets • Landing page</div>
+      </div>
+
+      <div>
+        <div class="hero-visual">
+          <!-- Replace src with your hero image or mockup -->
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop&s=placeholder" alt="Hero visual — design mockup">
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h3 style="margin:0 0 12px 0">What I do</h3>
+      <p class="muted small" style="margin:0 0 18px 0">Layanan end-to-end untuk kebutuhan brand dan produk digital.</p>
+
+      <div class="grid services">
+        <div class="card">
+          <h4>Branding & Logo</h4>
+          <div class="meta">Identitas visual, guideline, palet warna</div>
+          <p class="small muted" style="margin-top:10px">Dari konsep nama sampai aset yang siap dipakai di semua platform.</p>
+        </div>
+
+        <div class="card">
+          <h4>UI / UX Design</h4>
+          <div class="meta">Mobile & Web interfaces, prototypes</div>
+          <p class="small muted" style="margin-top:10px">Desain yang fokus pada pengalaman pengguna dan konversi.</p>
+        </div>
+
+        <div class="card">
+          <h4>Marketing Assets</h4>
+          <div class="meta">Banners, social kits, landing pages</div>
+          <p class="small muted" style="margin-top:10px">Aset desain siap pakai untuk kampanye digital dan iklan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" style="margin-top:28px">
+      <h3 style="margin:0 0 12px 0">Selected projects</h3>
+      <p class="muted small" style="margin:0 0 18px 0">Beberapa proyek favorit (klik untuk detail sederhana).</p>
+
+      <div class="grid projects">
+        <!-- Project 1 -->
+        <a class="project-thumb card" href="#projectModal" data-title="Aplikasi Toko Buku" data-desc="UI kit lengkap, dashboard admin, dan halaman produk." data-img="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop&s=placeholder">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop&s=placeholder" alt="Aplikasi toko buku">
+          <div class="project-info">
+            <strong>Aplikasi Toko Buku</strong>
+            <div class="meta">UI / App</div>
+          </div>
+        </a>
+
+        <!-- Project 2 -->
+        <a class="project-thumb card" href="#projectModal" data-title="Branding Kafe Lokal" data-desc="Logo, menu design, dan identitas visual." data-img="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=800&auto=format&fit=crop&s=placeholder">
+          <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=800&auto=format&fit=crop&s=placeholder" alt="Branding kafe">
+          <div class="project-info">
+            <strong>Branding Kafe Lokal</strong>
+            <div class="meta">Logo / Identity</div>
+          </div>
+        </a>
+
+        <!-- Project 3 -->
+        <a class="project-thumb card" href="#projectModal" data-title="Landing Page Produk" data-desc="Landing yang fokus konversi & A/B test assets." data-img="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=800&auto=format&fit=crop&s=placeholder">
+          <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=800&auto=format&fit=crop&s=placeholder" alt="Landing page">
+          <div class="project-info">
+            <strong>Landing Page Produk</strong>
+            <div class="meta">Web / Marketing</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" style="margin-top:28px">
+      <h3 style="margin:0 0 12px 0">What clients say</h3>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:12px;gap:16px">
+        <div class="card">
+          <div class="quote">“Desainnya cepat, rapi, dan sesuai brand. Hasil melebihi ekspektasi.”</div>
+          <div class="small muted" style="margin-top:8px">— Rina, Founder • Bookstore</div>
+        </div>
+        <div class="card">
+          <div class="quote">“Kolaborasi lancar, komunikasinya jelas, hasil sangat usable.”</div>
+          <div class="small muted" style="margin-top:8px">— Dito, Product Manager</div>
+        </div>
+        <div class="card">
+          <div class="quote">“Assets siap pakai untuk kampanye — konversi meningkat.”</div>
+          <div class="small muted" style="margin-top:8px">— Maya, Marketing Lead</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:32px">
+      <h3 style="margin:0 0 12px 0">Let's work together</h3>
+      <div class="muted small" style="margin-bottom:18px">Tertarik membuat desain memukau? Isi form atau hubungi langsung.</div>
+
+      <div class="grid contact-grid" style="gap:18px">
+        <form id="contactForm" class="card" onsubmit="return handleForm(event)">
+          <label>Name</label>
+          <input id="name" required placeholder="Nama kamu" />
+
+          <label>Email</label>
+          <input id="email" type="email" required placeholder="email@domain.com" />
+
+          <label>Brief singkat</label>
+          <textarea id="brief" rows="6" placeholder="Tuliskan kebutuhanmu..." required></textarea>
+
+          <div style="display:flex;gap:10px;margin-top:12px">
+            <button class="btn-cta" type="submit">Send message</button>
+            <button type="button" class="btn-ghost" onclick="bookCall()">Book a call</button>
+          </div>
+
+          <div id="formResult" class="small muted" style="margin-top:10px;display:none"></div>
+        </form>
+
+        <aside class="card" style="display:flex;flex-direction:column;gap:12px;justify-content:center">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="pill">✉️</div>
+            <div>
+              <div class="small muted">Email</div>
+              <div><strong>bglhil06@gmail.com</strong></div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="pill">📞</div>
+            <div>
+              <div class="small muted">Phone</div>
+              <div><strong>+62 812 1581 6678</strong></div>
+            </div>
+          </div>
+
+          <div class="muted small">Atau hubungi saya lewat profil Fiverr untuk diskusi cepat dan penawaran paket.</div>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="center">
+      <div style="max-width:var(--max-width);width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 0">
+        <div>© <span id="year"></span> Bglhil Design — All rights reserved.</div>
+        <div class="muted small">Terms • Privacy</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Project modal (simple) -->
+  <div id="projectModal" style="position:fixed;inset:0;background:rgba(2,6,14,0.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:60">
+    <div style="max-width:880px;width:100%;background:var(--card);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.04);position:relative">
+      <button onclick="closeModal()" style="position:absolute;right:14px;top:12px;background:transparent;border:none;color:var(--muted);font-size:18px;cursor:pointer">✕</button>
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:16px">
+        <div>
+          <img id="modalImg" src="" alt="" style="width:100%;height:320px;object-fit:cover;border-radius:8px;margin-bottom:12px" />
+          <h3 id="modalTitle" style="margin:0 0 8px 0"></h3>
+          <p id="modalDesc" class="muted small"></p>
+        </div>
+        <div>
+          <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:8px">
+            <div class="small muted">Services included</div>
+            <ul style="margin:10px 0 0 18px;color:var(--muted)" class="small">
+              <li>Concept & exploration</li>
+              <li>High-fidelity mockups</li>
+              <li
